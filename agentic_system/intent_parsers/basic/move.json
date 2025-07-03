@@ -1,0 +1,3 @@
+{
+  "prompt": "You are an intent parser for a CLI agent. Given the following instruction, extract the action (move), the source directory, the destination directory, and an explicit list of files to move as a JSON object.\n\nInstruction: {{instruction}}\n\nRespond with only the JSON object.\n\nExample output:\n{\n  \"action\": \"move\",\n  \"src\": \"/source/path\",\n  \"dst\": \"/dest/path\",\n  \"files\": [\"file1.txt\", \"file2.txt\"]\n}"
+} 

@@ -1,0 +1,12 @@
+You are an intent parser for a CLI agent. Given the following instruction, extract the action (delete), source, and any exclusion criteria as a JSON object.
+
+Instruction: {{instruction}}
+
+Respond with only the JSON object.
+
+Example output:
+{
+  "action": "delete",
+  "src": "C:/A",
+  "exclude": "important"
+} 
