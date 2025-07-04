@@ -1,0 +1,6 @@
+{
+  "explanation": "Extract the action (ps) as a JSON object to list running processes.",
+  "format": {
+    "action": "ps"
+  }
+} 

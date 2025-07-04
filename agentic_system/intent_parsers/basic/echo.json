@@ -1,0 +1,7 @@
+{
+  "explanation": "Extract the action (echo) and the text as a JSON object to print text to the terminal.",
+  "format": {
+    "action": "echo",
+    "text": "Hello, world!"
+  }
+} 

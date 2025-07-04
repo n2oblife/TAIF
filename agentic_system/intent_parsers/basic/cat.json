@@ -1,0 +1,7 @@
+{
+  "explanation": "Extract the action (cat) and the path to display as a JSON object.",
+  "format": {
+    "action": "cat",
+    "path": "/some/file.txt"
+  }
+} 

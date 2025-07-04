@@ -1,11 +1,7 @@
-You are an intent parser for a CLI agent. Given the following instruction, extract the action (tree) and the path to show as a directory tree as a JSON object.
-
-Instruction: {{instruction}}
-
-Respond with only the JSON object.
-
-Example output:
 {
-  "action": "tree",
-  "path": "/some/path"
+  "explanation": "Extract the action (tree) and the path to display as a JSON object.",
+  "format": {
+    "action": "tree",
+    "path": "/some/path"
+  }
 } 

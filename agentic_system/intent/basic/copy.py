@@ -8,7 +8,7 @@ import re
 class CopyIntentParser(BaseIntentParser):
     def __init__(self, prompt_dir=None):
         if prompt_dir is None:
-            prompt_dir = os.path.join(os.path.dirname(__file__), '../intent_parsers')
+            prompt_dir = os.path.join(os.path.dirname(__file__), '../intent_parsers/basic/')
         self.prompt_path = os.path.join(prompt_dir, 'copy.json')
     def load_prompt(self) -> Optional[str]:
         if not os.path.exists(self.prompt_path):

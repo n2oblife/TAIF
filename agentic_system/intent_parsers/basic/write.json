@@ -1,3 +1,8 @@
 {
-  "prompt": "You are an intent parser for a CLI agent. Given the following instruction, extract the action (write), the file to write to, and the text to write as a JSON object.\n\nInstruction: {{instruction}}\n\nRespond with only the JSON object.\n\nExample output:\n{\n  \"action\": \"write\",\n  \"file\": \"notes.txt\",\n  \"text\": \"Some content\"\n}"
+  "explanation": "Extract the action (write), the file path, and the content to write as a JSON object.",
+  "format": {
+    "action": "write",
+    "path": "/some/file.txt",
+    "content": "Hello, world!"
+  }
 } 

@@ -4,10 +4,10 @@ import shutil
 from typing import Optional
 
 class CopyCommand(BaseCommand):
-    def __init__(self, src: str, dst: str, exclude: Optional[str] = None):
+    def __init__(self, src: str, dst: str, files: Optional[str] = None):
         self.src = Path(src)
         self.dst = Path(dst)
-        self.exclude = exclude
+        self.files = files
     def execute(self) -> str:
         if not self.src.exists() or not self.src.is_dir():
             return f"Source directory not found: {self.src}"
@@ -16,7 +16,7 @@ class CopyCommand(BaseCommand):
         copied = []
         for file in self.src.iterdir():
             if file.is_file():
-                if self.exclude and self.exclude in file.name:
+                if self.files and file.name not in self.files:
                     continue
                 shutil.copy2(str(file), str(self.dst / file.name))
                 copied.append(file.name)

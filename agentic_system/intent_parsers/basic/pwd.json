@@ -1,0 +1,6 @@
+{
+  "explanation": "Extract the action (pwd) as a JSON object to show the current working directory.",
+  "format": {
+    "action": "pwd"
+  }
+} 

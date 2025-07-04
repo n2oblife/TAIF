@@ -1,3 +1,8 @@
 {
-  "prompt": "You are an intent parser for a CLI agent. Given the following instruction, extract the action (rewrite), the file to rewrite, the prompt to use, and the output file as a JSON object.\n\nInstruction: {{instruction}}\n\nRespond with only the JSON object.\n\nExample output:\n{\n  \"action\": \"rewrite\",\n  \"file\": \"mycv.txt\",\n  \"prompt\": \"Tailor this CV for a software engineering job\",\n  \"output\": \"mycv-tailored.txt\"\n}"
+  "explanation": "Extract the action (rewrite), the file path, and the new content as a JSON object.",
+  "format": {
+    "action": "rewrite",
+    "path": "/some/file.txt",
+    "content": "New content here."
+  }
 } 

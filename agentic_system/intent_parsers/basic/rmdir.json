@@ -1,0 +1,8 @@
+{
+  "explanation": "Extract the action (rmdir), the path, and the force flag as a JSON object to remove a directory.",
+  "format": {
+    "action": "rmdir",
+    "path": "/some/dir",
+    "force": true
+  }
+} 
