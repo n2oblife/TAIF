@@ -22,19 +22,25 @@ class TestBasicPipeline:
         (self.base / 'file2.txt').write_text('foo bar')
         (self.base / 'subdir').mkdir()
         (self.base / 'subdir' / 'file3.txt').write_text('baz qux')
-        self.agent = Agent(model="llama2")
+        self.agent = Agent(model="mistral", verbose=True)
 
     def teardown_method(self):
         self.temp_dir.cleanup()
 
     def run_pipeline(self, instruction, command_cls, result_check, **kwargs):
         prompt = instruction
-        intent_json = self.agent.ask(prompt)
+        intent_json = self.agent.ask(prompt, require_json=True)
         try:
             intent = json.loads(intent_json)
         except Exception:
             pytest.skip("LLM did not return valid JSON: " + repr(intent_json))
-        cmd_kwargs = {k: v for k, v in intent.items() if k != 'action'}
+        
+        # Handle nested parameters structure
+        if 'parameters' in intent:
+            cmd_kwargs = intent['parameters']
+        else:
+            cmd_kwargs = {k: v for k, v in intent.items() if k != 'action'}
+        
         cmd_kwargs.update(kwargs)
         cmd = command_cls(**cmd_kwargs)
         result = cmd.execute()

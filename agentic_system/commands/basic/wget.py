@@ -1,4 +1,4 @@
-from .base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 import requests
 from pathlib import Path
 

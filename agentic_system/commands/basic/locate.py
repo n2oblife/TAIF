@@ -1,5 +1,5 @@
 from pathlib import Path
-from .base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 from typing import Optional, List
 import fnmatch
 

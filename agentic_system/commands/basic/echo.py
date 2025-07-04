@@ -1,4 +1,4 @@
-from .base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 
 class EchoCommand(BaseCommand):
     def __init__(self, text: str):

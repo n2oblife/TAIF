@@ -1,5 +1,5 @@
 import platform
-from .base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 
 class UnameCommand(BaseCommand):
     def __init__(self):

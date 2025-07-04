@@ -8,6 +8,7 @@ tAIsk force
 1. Install dependencies:
    ```sh
    pip install -r requirements.txt
+   pip install -e .
    ```
 2. Make sure Ollama is running locally and your desired model (e.g., llama2) is available.
 

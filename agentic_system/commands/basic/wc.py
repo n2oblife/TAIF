@@ -1,5 +1,5 @@
 from pathlib import Path
-from .base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 
 class WcCommand(BaseCommand):
     def __init__(self, path: str):
