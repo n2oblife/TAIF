@@ -10,16 +10,70 @@ tAIsk force
    pip install -r requirements.txt
    pip install -e .
    ```
-2. Make sure Ollama is running locally and your desired model (e.g., llama2) is available.
+2. Make sure Ollama is running locally and your desired models are available:
+   ```sh
+   ollama serve
+   ollama pull deepseek-r1  # For reasoning (thinker)
+   ollama pull mistral      # For formatting (formatter)
+   ```
+
+### Adaptive Dual-LLM Architecture
+
+TAIF features an intelligent dual-LLM architecture that automatically adapts based on request complexity:
+
+- **Single LLM Mode**: Used for simple, one-step operations (fast response)
+- **Dual LLM Mode**: Used for complex, multi-step operations (high quality)
+
+#### Complexity Detection
+
+The system analyzes requests using multiple indicators:
+- **Multi-step operations**: "and", "then", "also", "furthermore"
+- **Conditional logic**: "if", "when", "unless", "based on"
+- **Complex file patterns**: wildcards, "all", "multiple", "recursive"
+- **Analysis tasks**: "analyze", "summarize", "review", "examine"
+- **Multi-location operations**: "from", "to", "between", "across"
+
+#### Usage Examples
+
+**Simple requests (Single LLM):**
+```sh
+python -m agentic_system.cli "list files in current directory"
+python -m agentic_system.cli "show contents of file.txt"
+python -m agentic_system.cli "create a new folder called backup"
+```
+
+**Complex requests (Dual LLM):**
+```sh
+python -m agentic_system.cli --dual-llm "analyze all Python files and summarize functionality"
+python -m agentic_system.cli --dual-llm "find all files containing 'TODO', extract them, and organize by priority"
+python -m agentic_system.cli --dual-llm "backup config files, update settings, and create rollback script"
+```
+
+**Analyze complexity without executing:**
+```sh
+python -m agentic_system.cli --analyze-complexity "find all files and create a report"
+```
+
+**Custom models with verbose output:**
+```sh
+python -m agentic_system.cli --dual-llm --thinker-model llama3 --formatter-model mistral --verbose "complex task here"
+```
+
+#### Performance Benefits
+
+- **Simple requests**: Fast single LLM response (0.5-2s)
+- **Complex requests**: High-quality dual LLM processing with fallback mechanisms
+- **Adaptive switching**: Automatic selection based on request complexity
+- **Error handling**: Graceful fallback if models are unavailable
 
 ### Usage
 
 #### Natural Language Prompt (Recommended)
-The primary way to use TAIF is to give a natural language prompt describing your goal. The agent will parse your intent, set a goal, plan, and execute the necessary CLI commands under the hood to achieve it.
+The primary way to use TAIF is to give a natural language prompt describing your goal. The agent will automatically choose the best LLM approach based on complexity, parse your intent, set a goal, plan, and execute the necessary CLI commands under the hood to achieve it.
 
 Example:
 ```sh
-python -m agentic_system.cli taif "Move all .txt files from /A to /B except those containing 'draft'"
+python -m agentic_system.cli "Move all .txt files from /A to /B except those containing 'draft'"
 ```
 
 The agent will:
@@ -75,12 +129,24 @@ The Agent class supports advanced reasoning workflows:
 ### Example: Using Agentic Reasoning in Python
 ```python
 from agentic_system.core import Agent
-agent = Agent()
+
+# Create agent with adaptive dual-LLM capability
+agent = Agent(
+    verbose=True,
+    thinker_model="llama3",      # For complex reasoning
+    formatter_model="mistral"    # For JSON formatting
+)
+
+# Analyze request complexity
+analysis = agent.get_complexity_analysis("Move all .txt files from /A to /B")
+print(f"Complexity score: {analysis['complexity_score']}")
+print(f"Is complex: {analysis['is_complex']}")
+
+# Set goal and track reasoning
 agent.goal_description = "Move all .txt files from /A to /B"
 agent.add_chain_thought("Parsed intent: move .txt files")
 agent.add_chain_thought("Checked /A for .txt files")
 agent.add_chain_thought("Planned move operations")
-# ...
 print(agent.chain_of_thought)
 
 # For tree-of-thought:
