@@ -1,4 +1,4 @@
-from agentic_system.commands.base import BaseCommand
+from agentic_system.commands.basic.base import BaseCommand
 from pathlib import Path
 import shutil
 from typing import Optional, List

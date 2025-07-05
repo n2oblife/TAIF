@@ -1,19 +1,19 @@
-from pathlib import Path
 from agentic_system.commands.basic.base import BaseCommand
-from typing import Optional
+from pathlib import Path
+import os
 
 class DeleteCommand(BaseCommand):
-    def __init__(self, src: str, files: Optional[str] = None):
-        self.src = Path(src)
-        self.files = files
+    def __init__(self, path: str):
+        self.path = Path(path)
     def execute(self) -> str:
-        if not self.src.exists() or not self.src.is_dir():
-            return f"Source directory not found: {self.src}"
-        deleted = []
-        for file in self.src.iterdir():
-            if file.is_file():
-                if self.files and file.name not in self.files:
-                    continue
-                file.unlink()
-                deleted.append(file.name)
-        return f"Deleted files: {', '.join(deleted)}" if deleted else "No files deleted." 
+        try:
+            if self.path.is_file():
+                self.path.unlink()
+                return f"Deleted file: {self.path}"
+            elif self.path.is_dir():
+                os.rmdir(self.path)
+                return f"Deleted directory: {self.path}"
+            else:
+                return f"Path not found: {self.path}"
+        except Exception as e:
+            return f"Error deleting: {e}" 

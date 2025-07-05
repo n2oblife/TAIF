@@ -1,4 +1,4 @@
-from .base import BaseIntentParser
+from ..base import BaseIntentParser
 from typing import Optional, Dict
 import re
 
