@@ -1,6 +1,0 @@
-{
-  "explanation": "Extract the action (uname) as a JSON object to show OS information.",
-  "format": {
-    "action": "uname"
-  }
-} 

@@ -1,7 +1,0 @@
-{
-  "explanation": "Extract the action (wc) and the file path as a JSON object to count lines, words, and characters in a file.",
-  "format": {
-    "action": "wc",
-    "path": "/some/file.txt"
-  }
-} 

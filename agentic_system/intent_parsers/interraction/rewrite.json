@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (rewrite), the file path, and the new content as a JSON object.",
-  "format": {
-    "action": "rewrite",
-    "path": "/some/file.txt",
-    "content": "New content here."
-  }
-} 

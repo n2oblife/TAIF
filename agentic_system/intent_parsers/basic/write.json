@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (write), the file path, and the content to write as a JSON object.",
-  "format": {
-    "action": "write",
-    "path": "/some/file.txt",
-    "content": "Hello, world!"
-  }
-} 

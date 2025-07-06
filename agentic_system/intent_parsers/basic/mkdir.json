@@ -1,7 +1,0 @@
-{
-  "explanation": "Extract the action (mkdir) and the path as a JSON object to create a directory.",
-  "format": {
-    "action": "mkdir",
-    "path": "/some/newdir"
-  }
-} 

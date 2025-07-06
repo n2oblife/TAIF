@@ -1,9 +1,0 @@
-{
-  "explanation": "Extract the action (copy), source, destination, and files to copy as a JSON object.",
-  "format": {
-    "action": "copy",
-    "src": "C:/A",
-    "dst": "C:/B",
-    "files": ["draft.txt"]
-  }
-} 

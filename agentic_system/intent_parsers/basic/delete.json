@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (delete), source, and files to delete as a JSON object.",
-  "format": {
-    "action": "delete",
-    "src": "C:/A",
-    "files": ["important.txt"]
-  }
-} 

@@ -1,9 +1,0 @@
-{
-  "explanation": "Extract the action (grep), directory to search, pattern to search for, and files to include as a JSON object.",
-  "format": {
-    "action": "grep",
-    "directory": "C:/A",
-    "pattern": "TODO",
-    "files": ["test.txt"]
-  }
-} 

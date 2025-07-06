@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (wget), the URL, and the output path as a JSON object to download a file.",
-  "format": {
-    "action": "wget",
-    "url": "https://example.com/file.txt",
-    "output_path": "/some/file.txt"
-  }
-} 

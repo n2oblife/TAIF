@@ -1,7 +1,0 @@
-{
-  "explanation": "Extract the action (tree) and the path to display as a JSON object.",
-  "format": {
-    "action": "tree",
-    "path": "/some/path"
-  }
-} 

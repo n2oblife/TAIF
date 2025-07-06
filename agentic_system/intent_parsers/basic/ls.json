@@ -1,7 +1,0 @@
-{
-  "explanation": "Extract the action (ls) and the path to list as a JSON object.",
-  "format": {
-    "action": "ls",
-    "path": "/some/path"
-  }
-} 

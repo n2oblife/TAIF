@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (ln), the target path, and the link path as a JSON object to create a symbolic link.",
-  "format": {
-    "action": "ln",
-    "target_path": "/some/target.txt",
-    "link_path": "/some/link.txt"
-  }
-} 

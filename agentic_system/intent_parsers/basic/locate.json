@@ -1,8 +1,0 @@
-{
-  "explanation": "Extract the action (locate), the pattern, and optional directory as a JSON object to find files matching a pattern.",
-  "format": {
-    "action": "locate",
-    "pattern": "*.txt",
-    "directory": "/some/path"
-  }
-} 
